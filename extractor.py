@@ -64,9 +64,9 @@ def main():
     file_paths = {
         "currency amount": "currency.txt",
         "phone number": "phones.txt",
-        "HTML tag": "tags.txt",
+        "HTML tag": "htmltags.txt",
         "email address": "emails.txt",
-        "URL address": "search.txt",
+        "URL address": "urls.txt",
     }
 
     while True:
