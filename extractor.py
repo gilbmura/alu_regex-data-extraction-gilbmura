@@ -60,7 +60,7 @@ def main():
         ("URL address", check_url),
     ]
 
-    # Define your file paths here
+    # file paths are here
     file_paths = {
         "currency amount": "currency.txt",
         "phone number": "phones.txt",
@@ -74,7 +74,7 @@ def main():
             print(f"{idx}. {item}")
         print()
         try:
-            choice = int(input("Please select an option from the above menu(1-6): "))
+            choice = int(input("Please select an option from the menu(1-6): "))
         except ValueError:
             print("\nInvalid input! Please enter a number between 1 and 6.\n")
             continue
