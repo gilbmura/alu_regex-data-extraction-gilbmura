@@ -1,4 +1,3 @@
-# alu_regex-data-extraction-gilbmura
 # 🔍 Regex Data Extraction Tool
 
 This project is a Python-based command-line application built to **extract and validate structured data** such as email addresses, URLs, phone numbers, currency amounts, and HTML tags using **Regular Expressions (Regex)**.
@@ -19,6 +18,8 @@ This CLI tool scans input text files and validates each line against specific pa
 
 * 📁 Reads from input `.txt` files
 * 🧪 Validates common data types using regex
+* 📂 Automatically creates an `output/` folder upon running
+* 📄 Saves valid and invalid entries to separate files by data type
 * 🧼 Clean and modular code
 * 🔄 Handles multiple formats and edge cases
 * 🖥️ CLI-based menu interface
@@ -27,13 +28,13 @@ This CLI tool scans input text files and validates each line against specific pa
 
 ## 🧠 Data Types Extracted
 
-| Data Type        | Regex Pattern Used                                                                |
-| ---------------- | --------------------------------------------------------------------------------- |
-| **Currency**     | `^\$\d{1,3}(,\d{3})*(\.\d{2})?$` or `^\$\d+(\.\d{2})?$`                           |
-| **Phone Number** | `^(\+?\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$`                        |
-| **HTML Tag**     | `^<\/?[a-zA-Z][a-zA-Z0-9]*(\s+[a-zA-Z_:][a-zA-Z0-9_\-:.]*="[^"]*")*\s*\/?>(\n)?$` |
-| **Email**        | `^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`                                |
-| **URL**          | `^https?://([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(:\d+)?(/[\S]*)?(\?[\S]*)?$`             |
+| Data Type        | Regex Pattern Used                                                            |
+| ---------------- | ----------------------------------------------------------------------------- |
+| **Currency**     | `^\$\d{1,3}(,\d{3})*(\.\d{2})?$` or `^\$\d+(\.\d{2})?$`                       |
+| **Phone Number** | `^(\+?\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$`                    |
+| **HTML Tag**     | `^<\/?[a-zA-Z][a-zA-Z0-9]*(\s+[a-zA-Z_:][a-zA-Z0-9_\-:.]*="[^"]*")*\s*\/? >$` |
+| **Email**        | `^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`                            |
+| **URL**          | `^https?://([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(:\d+)?(/[^\s]*)?(\?[^\s]*)?$`       |
 
 > You can add additional patterns (e.g., hashtags, time, credit card numbers) by following the current structure.
 
@@ -41,82 +42,59 @@ This CLI tool scans input text files and validates each line against specific pa
 
 ## 📂 File Structure
 
-```bash
+```
 alu_regex-data-extraction-{yourusername}/
-├── main.py
+├── extractor.py
 ├── emails.txt
 ├── phones.txt
 ├── currency.txt
 ├── htmltags.txt
 ├── urls.txt
-└── README.md
+├── README.md
+└── output/
+    ├── extracted_email_address.txt
+    ├── invalid_email_address.txt
+    └── ... (similar for other types)
 ```
 
 ---
 
-## 🧪 How to Use
+## ⚙️ How It Works
 
-1. **Clone the repository**
+When you run the program (`extractor.py`), the following happens:
 
-```bash
-git clone https://github.com/{yourusername}/alu_regex-data-extraction-gilbmura.git
-cd alu_regex-data-extraction-gilbmura
-```
+1. An `output/` directory is automatically created (if it doesn't already exist).
+2. For each data type (e.g., email, phone, URL), it reads entries from the corresponding `.txt` file (like `emails.txt`).
+3. It validates each entry using the appropriate regex.
+4. **Valid entries** are saved to a file like `output/extracted_email_address.txt`.
+5. **Invalid entries** are saved to a file like `output/invalid_email_address.txt`.
 
-2. **Run the script**
-
-```bash
-python main.py
-```
-
-3. **Choose from the menu** to validate:
-
-* Currency
-* Phone numbers
-* HTML tags
-* Emails
-* URLs
+👉 All saved files will be inside the `output/` folder, clearly named by data type and validity.
 
 ---
 
-## 📘 Example Input/Output
+## ✏️ Adding or Modifying Data
 
-Example from `phones.txt`:
+You can freely **edit, add, or remove** entries in the `.txt` input files (`emails.txt`, `phones.txt`, etc.) before running the program. The tool will read the current contents of each file and process them — there's no embedded or hardcoded data.
 
-```
-123-456-7890
-(123) 456-7890
-1234567890
-```
+> 📌 Make sure your new entries are each on a separate line.
 
-Expected Output:
-
-```
-Line 1: '123-456-7890' ---- Valid
-Line 2: '(123) 456-7890' ---- Valid
-Line 3: '1234567890' ---- Invalid
-```
+This gives you flexibility to test different types of input or reuse the tool for new data.
 
 ---
 
-## 🧹 Future Improvements
+## 🙌 Final Notes
 
-* Add support for hashtags, credit card numbers, and time formats
-* Export valid entries to separate output files
-* Add GUI interface
+This tool is designed to be extendable, clear, and useful for validating large sets of structured data with regular expressions. Great for quick testing or integrating into larger text-processing workflows.
 
----
-
-## 👨‍💻 Author
-
-Built with ❤️ by **Gilbert** during the ALU Regex Hackathon 2025.
+Feel free to fork and improve it! 
 
 ---
 
-## 📄 License
+## 👤 Author
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Created by **Gilbert**.
 
----
+## 📚 License
 
-Happy Hacking! 💻
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.

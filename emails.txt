@@ -1,0 +1,6 @@
+plainaddress
+user@@domain..com
+bob@.com
+john.doe@example.com
+user_123@domain.co.uk
+alice+test@sub.mail.org

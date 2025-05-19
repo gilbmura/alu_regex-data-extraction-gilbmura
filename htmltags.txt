@@ -1,0 +1,9 @@
+<div
+<a href=https://example.com>
+<img src=image.jpg alt=Image
+<div>
+<a href="https://example.com">
+<img src="image.jpg" alt="Image">
+<p>
+<div class="example">
+<img src="image.jpg" alt="description">
