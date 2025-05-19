@@ -44,13 +44,13 @@ This CLI tool scans input text files and validates each line against specific pa
 
 ```
 alu_regex-data-extraction-{yourusername}/
-├── extractor.py
-├── emails.txt
-├── phones.txt
+├── README.md
 ├── currency.txt
+├── emails.txt
+├── extractor.py
 ├── htmltags.txt
 ├── urls.txt
-├── README.md
+├── phones.txt
 └── output/
     ├── extracted_email_address.txt
     ├── invalid_email_address.txt
