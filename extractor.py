@@ -7,7 +7,7 @@ def check_currency(text):
 
 def check_phone(text):
     pattern = re.compile(
-        r'^(\+?\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$'
+        r'^(\+\d{1,3}[\s.-]?)?(\(?\d{3}\)?[\s.-]?)\d{3}[\s.-]?\d{4}$'
     )
     return bool(pattern.fullmatch(text.strip()))
 
