@@ -45,6 +45,7 @@ This CLI tool scans input text files and validates each line against specific pa
 ```
 alu_regex-data-extraction-{yourusername}/
 ├── README.md
+├── RegexEplanation.txt
 ├── currency.txt
 ├── emails.txt
 ├── extractor.py
